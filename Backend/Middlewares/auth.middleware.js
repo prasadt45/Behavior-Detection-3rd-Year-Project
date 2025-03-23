@@ -3,8 +3,9 @@ import {ApiError} from "../utils/ApiError.js"
 import {Apiresponce} from "../utils/Apiresponce.js "
 import {asyncHandler} from "../utils/asyncHandler.js"
 import { User } from "../Model/user.model.js";
+import jwt from "jsonwebtoken";
 
-export const verifyJWT = asyncHandler(async (req , res)=>{
+export const verifyJWT = asyncHandler(async (req , res , next)=>{
     try {
         console.log("Cookies:", req.cookies);
         console.log("Authorization Header:", req.header("Authorization"));

@@ -84,13 +84,13 @@ const loginuser = asyncHandler(async (req, res) => {
 
     const options = {
         httpOnly: true,// cokkies will be accesible only by server
-        secure: true , 
-     
+        secure: true,
+
     }
 
     return res.status(200)
-    .cookie("accesstoken" , accesstoken , options)
-    .cookie("refreshtoken" , refreshtoken , options)
+        .cookie("accesstoken", accesstoken, options)
+        .cookie("refreshtoken", refreshtoken, options)
         .json(
             new Apiresponce(
                 200,
@@ -106,4 +106,41 @@ const loginuser = asyncHandler(async (req, res) => {
 
 })
 
-export { registeruser , loginuser }; 
+const logoutuser = asyncHandler(async (req, res) => {
+    await User.findByIdAndUpdate(
+        req.user._id,
+        {
+            $unset: {
+                refreshToken: 1
+            }
+
+        },
+        {
+            new: true
+        }
+    )
+    const options = {
+        httpOnly: true,// cokkies will be accesible only by server
+        secure: true
+    }
+    return res.status(200)
+        .clearCookie("accessToken", options)
+        .clearCookie("refreshToken", options)
+        .json(new Apiresponce(200, {}, "User Logged Out"))
+})
+
+const getuserprofile = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.user._id).select("-password")
+    return res.status(200)
+        .json
+        (
+            new Apiresponce
+                (
+                    200,
+                    user,
+                    "User Profile"
+                )
+            )
+})
+
+export { registeruser, loginuser, logoutuser  , getuserprofile}; 
