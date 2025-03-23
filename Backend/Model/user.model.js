@@ -9,7 +9,8 @@ const userschema = new mongoose.Schema({
    } , 
    email:{
             type: String,
-            required: true 
+            required: true  , 
+            unique : true
    } , 
     password:{
                 type: String,
@@ -22,6 +23,9 @@ const userschema = new mongoose.Schema({
     imagePath: {
         type: String 
     }, 
+    refreshtoken:{
+        type:String
+    }
 
 } , 
 {
