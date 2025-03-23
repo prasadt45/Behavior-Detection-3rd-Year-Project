@@ -3,6 +3,7 @@ import { User } from "../Model/user.model.js";
 import { ApiError } from "../utils/ApiError.js"
 import { Apiresponce } from "../utils/Apiresponce.js "
 import { asyncHandler } from "../utils/asyncHandler.js"
+import { uploadOnCloudinary, deletefromcloudinary } from "../utils/cloudinary.js";
 
 
 const generatetoken = async (userid) => {
@@ -105,29 +106,24 @@ const loginuser = asyncHandler(async (req, res) => {
 
 
 })
-
 const logoutuser = asyncHandler(async (req, res) => {
-    await User.findByIdAndUpdate(
-        req.user._id,
-        {
-            $unset: {
-                refreshToken: 1
-            }
+    // Remove refreshToken from the database
+    await User.findByIdAndUpdate(req.user._id, { $unset: { refreshToken: 1 } }, { new: true });
 
-        },
-        {
-            new: true
-        }
-    )
     const options = {
-        httpOnly: true,// cokkies will be accesible only by server
-        secure: true
-    }
+        httpOnly: true, // Cookie is only accessible by the server
+        secure: true,   // Use secure cookies in production (HTTPS required)
+        sameSite: "None"
+    };
+
     return res.status(200)
-        .clearCookie("accessToken", options)
-        .clearCookie("refreshToken", options)
-        .json(new Apiresponce(200, {}, "User Logged Out"))
-})
+        .clearCookie("accesstoken", options) // Clear access token
+        .clearCookie("refreshtoken", options) // Clear refresh token
+        .json(new Apiresponce(200, {}, "User Logged Out"));
+});
+
+
+
 
 const getuserprofile = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id).select("-password")
@@ -140,7 +136,42 @@ const getuserprofile = asyncHandler(async (req, res) => {
                     user,
                     "User Profile"
                 )
-            )
+        )
 })
 
-export { registeruser, loginuser, logoutuser  , getuserprofile}; 
+// ✅ Upload Image
+const uploadimage = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.user._id);
+    if (!user) {
+        throw new ApiError(404, "User not found");
+    }
+
+    const imagePath = req.files?.image?.[0]?.path;
+    console.log(imagePath)
+    if (!imagePath) {
+        throw new ApiError(400, "No image provided");
+    }
+    const uploadoncld = await uploadOnCloudinary(imagePath);
+    if (!uploadoncld) {
+        throw new ApiError(500, "Failed to upload image");
+    }
+    user.image = uploadoncld.secure_url;
+    await user.save();
+    console.log(req.files)
+
+    return res.status(200)
+        .json(
+            new Apiresponce(
+                200,
+                uploadoncld,
+                "Image uploaded successfully"
+            )
+        )
+});
+
+
+
+
+
+
+export { registeruser, loginuser, logoutuser, getuserprofile, uploadimage }; 

@@ -17,10 +17,12 @@ const userschema = new mongoose.Schema({
                 required: true , 
                 minlength : [6, 'password must be at least 6 characters long']
     } ,
-    words: { 
-        type: [String], default: [] 
-    }, 
-    imagePath: {
+    words: [
+        {
+          type: String,
+        },
+      ],
+    image: {
         type: String 
     }, 
     refreshtoken:{

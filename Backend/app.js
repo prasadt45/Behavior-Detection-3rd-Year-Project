@@ -12,6 +12,9 @@ dotenv.config() ;
 app.use(cors()) ;
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true }));
+
+// Static file serving
+app.use(express.static("public"));
 app.use(cookieParser()) ;
 
 // Routes declaration
