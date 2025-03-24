@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Full page background */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/imentiv-assets/o/image-tool%2Fbanner-bg-2.jpg?alt=media&token=4dd6b17a-88e1-448a-a14f-f70ec1d278ca');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+  }
+  
