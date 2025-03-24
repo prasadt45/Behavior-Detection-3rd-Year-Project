@@ -8,6 +8,8 @@ import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import Usecase from "./components/Usecase.jsx";
 import Layout from "./Layout.jsx";
+import Register from "./components/Register.jsx";
+import Login from "./components/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
         path: "usecase",
         element: <Usecase />,
       },
+      {
+        path:"register" , 
+        element : <Register/>
+      },
+      {
+        path : "login" ,
+        element : <Login/>
+      }
     ],
   },
 ]);
