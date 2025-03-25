@@ -9,7 +9,7 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError(""); // Reset error before new request
+    setError("");
 
     try {
       const response = await fetch("http://localhost:8000/api/v1/users/login", {
@@ -26,53 +26,55 @@ export default function Login() {
         throw new Error(data.message || "Login failed");
       }
 
-      localStorage.setItem("token", data.token); // Store token
+      localStorage.setItem("token", data.token);
       alert("Login successful!");
-      navigate("/"); // Redirect to home page after login
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 bg-white shadow-lg rounded-lg">
-        <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r p-4">
+      <div className="flex w-[890px] h-[500px] bg-white/10 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg">
+        {/* Left Section - Image */}
+        <div className="w-1/2 flex items-center justify-center bg-white">
+          <img
+            src="https://res.cloudinary.com/doqoizcgs/image/upload/v1742873397/rxkz0jdb5a6bglulithx.jpg"
+            alt="Login Illustration"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-        {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-
-        <form onSubmit={handleLogin} className="space-y-4">
-          <div>
-            <label className="block text-gray-700">Email</label>
+        {/* Right Section - Login Form */}
+        <div className="w-1/2 flex flex-col items-center justify-center p-6">
+          <h2 className="text-white text-2xl font-bold mb-4">Login</h2>
+          {error && <p className="text-red-500 text-sm text-center mb-3">{error}</p>}
+          <form onSubmit={handleLogin} className="w-full flex flex-col">
             <input
               type="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded"
+              className="w-full px-4 py-2 mb-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none"
               required
             />
-          </div>
-
-          <div>
-            <label className="block text-gray-700">Password</label>
             <input
               type="password"
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded"
+              className="w-full px-4 py-2 mb-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none"
               required
             />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-          >
-            Login
-          </button>
-        </form>
+            <button
+              type="submit"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg"
+            >
+              Login
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
