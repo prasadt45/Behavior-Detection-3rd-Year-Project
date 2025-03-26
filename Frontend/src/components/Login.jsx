@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CheckCircle } from "lucide-react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
+    setSuccess("");
 
     try {
       const response = await fetch("http://localhost:8000/api/v1/users/login", {
@@ -18,6 +21,7 @@ export default function Login() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
+        credentials: "include", // ✅ Ensures cookies are sent & received!
       });
 
       const data = await response.json();
@@ -27,8 +31,9 @@ export default function Login() {
       }
 
       localStorage.setItem("token", data.token);
-      alert("Login successful!");
-      navigate("/");
+      setSuccess("Login successful!");
+      console.log(document.cookie);
+      setTimeout(() => navigate("/"), 1500); // Redirect after a delay
     } catch (err) {
       setError(err.message);
     }
@@ -50,6 +55,12 @@ export default function Login() {
         <div className="w-1/2 flex flex-col items-center justify-center p-6">
           <h2 className="text-white text-2xl font-bold mb-4">Login</h2>
           {error && <p className="text-red-500 text-sm text-center mb-3">{error}</p>}
+          {success && (
+            <div className="flex items-center text-green-500 text-sm mb-3">
+              <CheckCircle className="w-5 h-5 mr-2" />
+              {success}
+            </div>
+          )}
           <form onSubmit={handleLogin} className="w-full flex flex-col">
             <input
               type="email"

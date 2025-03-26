@@ -8,15 +8,27 @@ export default function Navbar() {
   useEffect(() => {
     // Check if user is logged in (e.g., token exists in localStorage)
     const token = localStorage.getItem("token");
+           
     setIsLoggedIn(!!token);
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("token"); // Remove token from storage
-    setIsLoggedIn(false);
-    /*navigate("/login"); // Redirect to login page*/
+  const handleLogout = async () => {
+    try {
+      await fetch("http://localhost:8000/api/v1/users/logout", {
+        method: "POST",
+        credentials: "include", // Ensure cookies are included
+      });
+  
+      // Remove localStorage tokens (if stored)
+      localStorage.removeItem("token");
+      
+      setIsLoggedIn(false);
+      navigate("/login"); // Redirect to login page
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
   };
-
+  
   return (
     <div className="w-full fixed top-0 left-0 bg-[#101937] text-white p-7 z-50 shadow-md font-sans">
       <div className="max-w-7xl mx-auto flex justify-between items-center backdrop-blur-lg">

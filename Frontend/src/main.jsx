@@ -10,6 +10,7 @@ import Usecase from "./components/Usecase.jsx";
 import Layout from "./Layout.jsx";
 import Register from "./components/Register.jsx";
 import Login from "./components/Login.jsx";
+import UploadSection from "./components/UploadSection.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path : "login" ,
         element : <Login/>
+      } , 
+      {
+        path:"upload" , 
+        element : <UploadSection/>
       }
     ],
   },

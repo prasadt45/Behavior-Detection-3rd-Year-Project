@@ -9,11 +9,18 @@ const app =  express() ;
 dotenv.config() ;
 
 
-app.use(cors()) ;
+app.use(
+    cors({
+      origin: "http://localhost:5173", // Frontend URL
+      credentials: true, // Allow cookies/auth headers
+    })
+  );
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true }));
 
+
 // Static file serving
+
 app.use(express.static("public"));
 app.use(cookieParser()) ;
 

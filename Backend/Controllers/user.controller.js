@@ -3,7 +3,7 @@ import { User } from "../Model/user.model.js";
 import { ApiError } from "../utils/ApiError.js"
 import { Apiresponce } from "../utils/Apiresponce.js "
 import { asyncHandler } from "../utils/asyncHandler.js"
-import { uploadOnCloudinary, deletefromcloudinary } from "../utils/cloudinary.js";
+import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 
 const generatetoken = async (userid) => {
@@ -85,7 +85,8 @@ const loginuser = asyncHandler(async (req, res) => {
 
     const options = {
         httpOnly: true,// cokkies will be accesible only by server
-        secure: true,
+        secure: false,
+        sameSite:"None"
 
     }
 
@@ -112,7 +113,7 @@ const logoutuser = asyncHandler(async (req, res) => {
 
     const options = {
         httpOnly: true, // Cookie is only accessible by the server
-        secure: true,   // Use secure cookies in production (HTTPS required)
+        secure: false ,   // Use secure cookies in production (HTTPS required)
         sameSite: "None"
     };
 

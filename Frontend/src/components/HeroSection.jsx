@@ -1,4 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+
+
+
 
 export default function HeroSection() {
   const images = [
@@ -10,6 +15,13 @@ export default function HeroSection() {
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
+  const navigate = useNavigate()
+
+  const handleclick = ()=>{
+    console.log("bUTTON DABAYA") ; 
+    navigate('/upload')
+
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,7 +41,11 @@ export default function HeroSection() {
         <p className="text-lg mt-4 font-serif">
           Discover the emotional makeup of your image with our advanced AI.
         </p>
-        <button className="mt-6 px-6 py-3 text-lg bg-[#0057ff] text-white font-semibold rounded-md hover:brightness-90 transition">
+        <button  onClick={
+          handleclick
+        
+        }
+        className="mt-6 px-6 py-3 text-lg bg-[#0057ff] text-white font-semibold rounded-md hover:brightness-90 transition">
           Try Your Image Now
         </button>
       </div>
