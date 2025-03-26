@@ -118,5 +118,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+Backend/public/
 
-# End of https://mrkandreev.name/snippets/gitignore-generator/#Node
+
+# End of https://mrkandreev.name/snippets/gitignore-generator/#Node"Backend/public/"   # Ensure the rule is there
