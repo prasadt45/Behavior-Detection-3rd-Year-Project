@@ -170,9 +170,57 @@ const uploadimage = asyncHandler(async (req, res) => {
         )
 });
 
+const generateword = asyncHandler(async (req , res)=>{
+      const {word} = req.body ; 
+      if(!word){
+        throw new ApiError(400,"Word is required")
+      }
+      const response = await fetch(
+        "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1",
+        {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${process.env.HF_API_KEY}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ 
+                inputs: `Generate a paragpgh including : "After anaylyzing image we see  ${word} activity. explain some about ${word} in 2-3 senetences"` ,
+                parameters: { max_new_tokens: 50 }  
+            }),
+        }
+    );
+    
+    
+    console.log(response)
+    
+    
+    if(!response){
+        throw new ApiError(500,"Failed to generate word")
+    }
+    if (!response.ok) {
+        throw new Error(`API Error: ${response.statusText}`);
+    }
+    const data = await response.json();
+    const paragraph = data[0]?.generated_text || "No response from AI";
+    const formattedParagraph = paragraph.split("\n\n").pop().trim();
+
+    console.log("Generated Paragraph:", formattedParagraph);
+
+    return res.status(200)
+    .json(
+        new Apiresponce(
+            200,
+            word , formattedParagraph,
+            "Paragraph generated successfully"
+            )
+    )
+
+
+})
 
 
 
 
 
-export { registeruser, loginuser, logoutuser, getuserprofile, uploadimage }; 
+
+export { registeruser, loginuser, logoutuser, getuserprofile, uploadimage  , generateword}; 

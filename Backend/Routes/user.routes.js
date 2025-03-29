@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { registeruser , loginuser , logoutuser , getuserprofile , uploadimage } from "../Controllers/user.controller.js";
+import { registeruser , loginuser , logoutuser , getuserprofile , uploadimage , generateword } from "../Controllers/user.controller.js";
 import { Router } from "express";
 import { verifyJWT } from "../Middlewares/auth.middleware.js";
 import { upload } from "../Middlewares/multer.middleware.js";
@@ -15,6 +15,7 @@ router.route("/uploadimage").post(
     verifyJWT,
     uploadimage
 );
+router.route("/generateword").post( generateword) ;
 
 
 export default router ; 
