@@ -191,8 +191,6 @@ const generateword = asyncHandler(async (req , res)=>{
     );
     
     
-    console.log(response)
-    
     
     if(!response){
         throw new ApiError(500,"Failed to generate word")
