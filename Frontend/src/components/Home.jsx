@@ -2,6 +2,7 @@ import React from 'react'
 import HeroSection from './HeroSection'
 import HomeBot from './HomeBot'
 import { motion } from 'framer-motion'
+import Footer from './Footer'
 
 function Home() {
   return (
@@ -34,6 +35,8 @@ function Home() {
 </div>
 
       </motion.div>
+      <Footer />
+
     </div>
   )
 }
