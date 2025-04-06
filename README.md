@@ -1,6 +1,11 @@
-# Behavior Detection 3rd Year 🌟
+# Body Posture Recognition System 🚀
 
-This is the backend for the Behavior Detection 3rd Year project. It is built using Node.js, Express, and MongoDB. The project aims to detect and analyze user behavior through various endpoints and machine learning models.
+This is a full-stack application for body posture recognition, combining:
+- **Backend**: Node.js, Express, MongoDB 🖥️
+- **Frontend**: React, Vite, TailwindCSS 💻
+- **Machine Learning**: Python-based posture detection model 🤖
+
+The system analyzes user posture through uploaded images and provides feedback.
 
 ## Table of Contents 📚
 
@@ -52,36 +57,46 @@ This is the backend for the Behavior Detection 3rd Year project. It is built usi
 
 2. The server will be running on `http://localhost:<PORT>`.
 
-## Folder Structure 📁
+## Folder Structure 🗂️
 
-### Backend
-- **Controllers/**: Contains the logic for handling requests and responses.
-- **DB/**: Database connection and models.
-- **Middlewares/**: Custom middleware for authentication and file handling.
-- **Routes/**: API route definitions.
-- **utils/**: Utility functions and classes.
-- **MLmodel/**: Contains machine learning model files and resources.
+### Backend 🖥️
+- **Controllers/**: 🎮 Request/response handlers
+- **DB/**: 🗃️ MongoDB connection & models
+- **Middlewares/**: 🛡️ Auth & file handling
+- **Routes/**: 🛣️ API endpoint definitions  
+- **utils/**: 🧰 Helper functions
+- **MLmodel/**: 🤖 Python posture detection
+- **public/**: 🖼️ Static assets
 
-### Frontend
-- **src/**: Main source code for the frontend application.
-- **components/**: Reusable components for the user interface.
-- **context/**: Context API for state management.
-- **public/**: Static files served by the frontend.
+### Frontend 💻
+- **src/**: 🏗️ Main application code
+  - **components/**: 🧩 UI components
+    - HeroSection.jsx: 🌟 Landing page hero
+    - UploadSection.jsx: ⬆️ Image upload
+    - Navbar.jsx: 🧭 Navigation
+    - Footer.jsx: 🦶 Page footer
+  - **context/**: 🌐 State management
+  - **assets/**: 🎨 Images & icons
+- **public/**: 🌐 Static files
 
-## API Endpoints 📡
+## API Endpoints 🔌
 
-### User Routes
+### User Routes 👤
+- `POST /api/v1/users/register` - ✍️ Register new user
+- `POST /api/v1/users/login` - 🔑 Login user
+- `POST /api/v1/users/logout` - 🚪 Logout user  
+- `GET /api/v1/users/profile` - 👤 Get user profile
+- `POST /api/v1/users/uploadimage` - 📤 Upload posture image
 
-- `POST /api/v1/users/register` - Register a new user
-- `POST /api/v1/users/login` - Login a user
-- `POST /api/v1/users/logout` - Logout a user
-- `GET /api/v1/users/profile` - Get user profile
-- `POST /api/v1/users/uploadimage` - Upload user image
+## Frontend Components 🧩
 
-## Frontend Components 🖥️
-
-- **UploadSection.jsx**: Component for uploading images.
-- **App.jsx**: Main application component that renders the application layout.
+- **HeroSection.jsx**: 🌟 Landing page introduction
+- **UploadSection.jsx**: 📤 Image upload interface
+- **Navbar.jsx**: 🧭 Navigation menu
+- **Footer.jsx**: 🦶 Page footer content
+- **About.jsx**: ℹ️ Project information
+- **Contact.jsx**: 📞 Contact form
+- **Usecase.jsx**: 💡 Use case examples
 
 ## Machine Learning Model 🤖
 
