@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
   const images = [
-    "https://firebasestorage.googleapis.com/v0/b/imentiv-assets/o/image-tool%2Fimage-emotion-3.png?alt=media&token=1caff628-0884-42f8-a992-1332bce0c4b9",
-    "https://firebasestorage.googleapis.com/v0/b/imentiv-assets/o/image-tool%2Fimage-emotion-1.png?alt=media&token=7204d450-68ae-48ef-aba6-cc2f940947ef",
     "https://firebasestorage.googleapis.com/v0/b/imentiv-assets/o/image-tool%2Fimage-emotion-2.png?alt=media&token=0895b7c1-4f2f-4bb2-8fe2-2417df199a7f",
     "https://firebasestorage.googleapis.com/v0/b/imentiv-assets/o/image-tool%2Fimage-emotion-5.png?alt=media&token=6a763c75-f41c-4252-958d-5c56f2e1ecfc",
     "https://firebasestorage.googleapis.com/v0/b/imentiv-assets/o/image-tool%2Fimage-emotion-4.png?alt=media&token=bdbe6a49-884a-48c1-95ed-ce34c297f128",
+    "https://firebasestorage.googleapis.com/v0/b/imentiv-assets/o/image-tool%2Fimage-emotion-3.png?alt=media&token=1caff628-0884-42f8-a992-1332bce0c4b9",
+    "https://firebasestorage.googleapis.com/v0/b/imentiv-assets/o/image-tool%2Fimage-emotion-1.png?alt=media&token=7204d450-68ae-48ef-aba6-cc2f940947ef",
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -32,7 +32,8 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div className="flex items-center justify-between px-10 py-26 text-white min-h-screen w-full gap-16">
+    <div className="flex items-center justify-between px-10 pt-26  text-white min-h-screen w-full gap-16">
+
       {/* Left Text Section - Adjusted Left Alignment */}
       <div className="max-w-lg text-left mr-16"> 
         <h1 className="text-5xl font-serif font-medium leading-tight">

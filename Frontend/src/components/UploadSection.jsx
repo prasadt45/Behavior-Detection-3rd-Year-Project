@@ -47,7 +47,7 @@ export default function UploadSection() {
     };
 
     return (
-        <div className="min-h-[110vh] flex flex-col items-center justify-start bg-gradient-to-r text-white px-4 pt-16 pb-10">
+        <div className="min-h-[110vh] flex flex-col items-center justify-start bg-gradient-to-r text-white px-8 pt-52 pb-4">
             {/* Main Container */}
             <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center justify-between gap-10">
                 {/* Upload Section */}

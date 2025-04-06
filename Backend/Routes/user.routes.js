@@ -12,7 +12,7 @@ router.route("/logout").post(verifyJWT , logoutuser) ;
 router.route("/profile").get(verifyJWT , getuserprofile) ;
 router.route("/uploadimage").post(
     upload.fields([{ name: "image", maxCount: 1 }]),
-    verifyJWT,
+    
     uploadimage
 );
 router.route("/generateword").post( generateword) ;

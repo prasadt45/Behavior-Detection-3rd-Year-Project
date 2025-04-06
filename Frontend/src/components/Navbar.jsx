@@ -51,6 +51,26 @@ export default function Navbar() {
             Home
           </NavLink>
           <NavLink 
+            to="/about" 
+            className={({ isActive }) =>
+              `text-[19px] font-medium hover:text-blue-400 ${
+                isActive ? "text-blue-400" : "text-white"
+              }`
+            }
+          >
+            About
+          </NavLink>
+          <NavLink 
+            to="/upload" 
+            className={({ isActive }) =>
+              `text-[19px] font-medium hover:text-blue-400 ${
+                isActive ? "text-blue-400" : "text-white"
+              }`
+            }
+          >
+            Test Image
+          </NavLink>
+          <NavLink 
             to="/usecase" 
             className={({ isActive }) =>
               `text-[19px] font-medium hover:text-blue-400 ${
@@ -58,7 +78,7 @@ export default function Navbar() {
               }`
             }
           >
-            Use Case
+            Use Cases
           </NavLink>
           <NavLink 
             to="/contact" 
@@ -70,16 +90,7 @@ export default function Navbar() {
           >
             Contact
           </NavLink>
-          <NavLink 
-            to="/about" 
-            className={({ isActive }) =>
-              `text-[19px] font-medium hover:text-blue-400 ${
-                isActive ? "text-blue-400" : "text-white"
-              }`
-            }
-          >
-            About
-          </NavLink>
+          
         </nav>
 
         {/* Auth Buttons */}
