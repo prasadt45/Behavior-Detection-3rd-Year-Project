@@ -1,4 +1,5 @@
 import { useState } from "react";
+import speechEmotionDetection from "../assets/speech-emotion-detection.webp";
 
 export default function UploadSection() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -84,7 +85,7 @@ export default function UploadSection() {
                 {/* AI Prediction Section */}
                 <div className="flex flex-col items-center w-full lg:w-1/2">
                     <img
-                        src="https://www.pranathiss.com/static/assets/images/casestudies/banner-img/speech-emotion-detection.webp"
+                        src={speechEmotionDetection}
                         alt="Emotion Detection"
                         className="w-92 h-80"
                     />
