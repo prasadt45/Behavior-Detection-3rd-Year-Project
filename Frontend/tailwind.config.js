@@ -6,12 +6,17 @@ export default {
   ],
   theme: {
     extend: {
-      transitionTimingFunction: {
-        'in-out-soft': 'cubic-bezier(0.4, 0, 0.2, 1)',
+      animation: {
+        wave: "wave 1s infinite ease-in-out",
+      },
+      keyframes: {
+        wave: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
       },
     },
-  }
-  ,
+  },
+  
   plugins: [],
 }
-
