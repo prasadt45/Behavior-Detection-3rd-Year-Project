@@ -7,7 +7,7 @@ const Footer = () => {
 
       <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        {/* Company Info */}
+       
         <div>
           <h3 className="text-2xl font-bold mb-4 text-blue-500">Body Posture Detection</h3>
           <p className="text-gray-400">
@@ -15,7 +15,7 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Useful Links */}
+       
         <div>
           <h4 className="text-xl font-semibold mb-4">Useful Links</h4>
           <ul className="space-y-2 text-gray-300">
@@ -27,7 +27,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Social Links */}
+       
         <div className="flex flex-col ">
           <div>
             <h4 className="text-xl font-semibold mb-6">Connect with Us</h4>
@@ -41,7 +41,7 @@ const Footer = () => {
 
       </div>
 
-      {/* Copyright */}
+     
       <div className="text-center text-gray-500 mt-10 text-sm">
         © {new Date().getFullYear()} Imentiv. All rights reserved.
       </div>

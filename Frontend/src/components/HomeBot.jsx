@@ -5,7 +5,7 @@ const HomeBot = () => {
     <section className="bg-black text-white pt-16 pb-20 px-6 transition-all duration-700">
       <div className="max-w-7xl mx-auto space-y-24">
 
-        {/* Section 1: Posture Detection */}
+        
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 space-y-4">
             <h2 className="text-4xl font-bold text-white">
@@ -27,7 +27,7 @@ const HomeBot = () => {
           </div>
         </div>
 
-        {/* Section 2: Emotion Detection */}
+        
         <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
           <div className="lg:w-1/2 space-y-4">
             <h2 className="text-4xl font-bold text-white">

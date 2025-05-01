@@ -17,7 +17,7 @@ export default function UploadSection() {
         formData.append("image", file);
 
         try {
-            // Simulate progress steps
+            
             setTimeout(() => {
                 setLoadingStep("upload-done");
                 setLoadingStep("analyze");
@@ -40,13 +40,13 @@ export default function UploadSection() {
                 throw new Error(data.message || "Upload failed");
             }
 
-            setSuccessMessage("✅ Image uploaded and analyzed successfully!");
+            setSuccessMessage(" Image uploaded and analyzed successfully!");
             setPrediction(data);
             setErrorMessage("");
-            setLoadingStep(""); // Stop loading animation
+            setLoadingStep(""); 
         } catch (err) {
             console.error("Upload Error:", err.message);
-            setErrorMessage("❌ Upload failed! Please try again.");
+            setErrorMessage(" Upload failed! Please try again.");
             setSuccessMessage("");
             setPrediction(null);
         } finally {
@@ -74,7 +74,7 @@ export default function UploadSection() {
                         isDone ? "text-green-400" : isActive ? "opacity-100" : "opacity-40"
                     }`}
                 >
-                    {isDone ? `✅ ${label}` : label}
+                    {isDone ? ` ${label}` : label}
                 </span>
                 {isActive && (
                     <div className="flex space-x-1">
@@ -94,7 +94,7 @@ export default function UploadSection() {
     return (
         <div className="min-h-[110vh] flex flex-col items-center justify-start bg-gradient-to-r  text-white px-8 pt-52 pb-4">
             <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center justify-between gap-10">
-                {/* Upload Section */}
+               
                 <div className="flex flex-col items-center text-center w-full lg:w-1/2">
                     <h1 className="text-4xl font-serif font-medium text-white mb-4">
                         Body Posture Detection & AI Analysis

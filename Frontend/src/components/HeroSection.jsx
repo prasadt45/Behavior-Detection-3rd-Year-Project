@@ -38,7 +38,7 @@ export default function HeroSection() {
   return (
     <div className="flex items-center justify-between px-10 pt-26  text-white min-h-screen w-full gap-16">
 
-      {/* Left Text Section - Adjusted Left Alignment */}
+      
       <div className="max-w-lg text-left mr-16"> 
         <h1 className="text-5xl font-serif font-medium leading-tight">
           Analyze Body Postures & Emotions in Real-Time
@@ -55,7 +55,7 @@ export default function HeroSection() {
         </button>
       </div>
 
-      {/* Right Image Section - Adjusted Right Alignment */}
+      
       <div className="relative h-96 w-90 mr-12"> 
         <img
           src={images[currentImage]}

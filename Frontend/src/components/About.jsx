@@ -6,7 +6,7 @@ const About = () => {
     <section className="min-h-screen bg-gradient-to-br  text-white px-6 py-20">
       <div className="max-w-6xl mx-auto space-y-20">
 
-        {/* Project Overview */}
+        
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -19,7 +19,7 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Objectives & Team Side by Side */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Project Objectives */}
           <motion.div
