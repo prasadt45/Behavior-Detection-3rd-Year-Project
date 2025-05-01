@@ -21,7 +21,7 @@ export default function Login() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
-        credentials: "include", // ✅ Ensures cookies are sent & received!
+        credentials: "include", 
       });
 
       const data = await response.json();
@@ -33,7 +33,7 @@ export default function Login() {
       localStorage.setItem("token", data.token);
       setSuccess("Login successful!");
       console.log(document.cookie);
-      setTimeout(() => navigate("/"), 1500); // Redirect after a delay
+      setTimeout(() => navigate("/"), 1500);
     } catch (err) {
       setError(err.message);
     }
@@ -42,7 +42,7 @@ export default function Login() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r p-4">
       <div className="flex w-[890px] h-[500px] bg-white/10 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg">
-        {/* Left Section - Image */}
+        
         <div className="w-1/2 flex items-center justify-center bg-white">
           <img
             src="https://res.cloudinary.com/doqoizcgs/image/upload/v1742873397/rxkz0jdb5a6bglulithx.jpg"
@@ -51,7 +51,7 @@ export default function Login() {
           />
         </div>
 
-        {/* Right Section - Login Form */}
+        
         <div className="w-1/2 flex flex-col items-center justify-center p-6">
           <h2 className="text-white text-2xl font-bold mb-4">Login</h2>
           {error && <p className="text-red-500 text-sm text-center mb-3">{error}</p>}
