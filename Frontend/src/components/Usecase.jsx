@@ -47,7 +47,7 @@ const Usecase = () => {
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               className="bg-[#1e1e2e] rounded-2xl p-4 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all"
             >
-              {/* Flex row for icon and title */}
+              
               <div className="flex items-center gap-4 mb-2">
                 {useCase.icon}
                 <h4 className="text-xl font-semibold">{useCase.title}</h4>

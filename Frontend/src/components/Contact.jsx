@@ -20,7 +20,7 @@ const Contact = () => {
           />
         </motion.div>
 
-        {/* Form Section */}
+        
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -29,7 +29,7 @@ const Contact = () => {
         >
           <h2 className="text-3xl font-bold mb-6 text-blue-400">📬 Get in Touch</h2>
           <form className="space-y-6">
-            {/* Name */}
+           
             <div>
               <label className="block mb-1 font-medium text-gray-300">Name</label>
               <input
@@ -39,7 +39,6 @@ const Contact = () => {
               />
             </div>
 
-            {/* Email */}
             <div>
               <label className="block mb-1 font-medium text-gray-300">Email</label>
               <input
@@ -49,7 +48,6 @@ const Contact = () => {
               />
             </div>
 
-            {/* Message */}
             <div>
               <label className="block mb-1 font-medium text-gray-300">Message</label>
               <textarea
@@ -59,7 +57,7 @@ const Contact = () => {
               />
             </div>
 
-            {/* Button */}
+            
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
