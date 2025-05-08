@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-dotenv.config(); // Load .env before using process.env
+dotenv.config(); 
 
 const DB_NAME = "Behdetsys"
 const connectDB = async () => {
@@ -12,7 +12,7 @@ const connectDB = async () => {
           
       console.log(`Connected to database ${connInstance.connection.host}`);
     } catch (error) {
-      console.error("Database connection failed", error); // Fix: Use `error` instead of `err`
+      console.error("Database connection failed", error); 
       process.exit(1); 
     }
   };
