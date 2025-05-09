@@ -23,6 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 backend/public/
-frontend/package.json
+Frontend/package.json
 frontend/package-lock.json
 
